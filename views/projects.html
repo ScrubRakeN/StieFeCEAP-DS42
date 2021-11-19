@@ -1,0 +1,49 @@
+{%extends "layout.html"%}
+
+{%set title = "Projetos - FeCEAP 2021"%}
+{%set bodyID = "page-projects"%}
+
+{%block content%}
+    <div id="container">
+        <header>
+            <a href="/">
+                <img id="logo" src="FeCEAP-logoAlef2.svg" alt="FeCEAP-logo">
+    
+            </a>
+            <nav>
+                <li><a href="/">Início</a></li>
+                <li><a href="#" class="button" onclick="onOff()">Novo Projeto</a></li>
+            </nav>
+        </header>
+    
+        <section id="title"> 
+            <p>em exibição</p>
+            <h1>Projetos</h1>
+        </section>
+    
+        <main>
+            <section id="projects">
+                {% for projeto in rows %}
+                <div class="project">
+                    <img
+                    src="{{projeto.img}}" 
+                    alt="">
+                
+                    <div class="content">
+                        <h3>{{projeto.title}}</h3>
+                        <p>{{projeto.category}}</p>
+    
+                        <div class="description">
+                            {{projeto.description}}
+                        </div>
+                        <a href="{{projeto.link}}" target="_blank">Ir para o projeto</a>
+                    </div>
+                </div>
+                {%endfor%}
+            </section>
+        </main>
+        <footer>
+            Com ❤️ <a href="https://ceappedreira.org.br/" target="_blank">CEAP</a>
+        </footer>
+    </div>
+{%endblock%}
